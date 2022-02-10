@@ -1,0 +1,138 @@
+{% load i18n %}
+{% load static %}
+
+{% load common_utils %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Hand Farming{% endblock %}</title>
+
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/common.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% endblock %}
+
+    {% block fonts %}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+              rel="stylesheet">
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="https://kit.fontawesome.com/5836184a9d.js" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body>
+<header>
+    <div class="header-bar">
+        <a class="logo-link" href="{% url 'main_page' %}">
+            <img class="logo"
+                 src="{% firstof images.NAVBAR_BRAND.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.NAVBAR_BRAND.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.NAVBAR_BRAND.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+        <div class="header-bar-input">
+            <label id="check-label" for="check">
+                <img class="menu-close" src="{% static 'img/menu-close.svg' %}"/>
+                <img class="menu-open" src="{% static 'img/menu-open.svg' %}"/>
+            </label>
+        </div>
+    </div>
+    <input id="check"  type="checkbox"/>
+    <div class="dropdown-menu">
+        <nav>
+            <a href="{% url 'main_page' %}#about">{% firstof texts.NAVBAR_ABOUT_US.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            <a href="{% url 'main_page' %}#idea">{% firstof texts.NAVBAR_OUR_IDEA.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            <a href="{% url 'main_page' %}#feedback">{% firstof texts.NAVBAR_REVIEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            <a href="{% url 'main_page' %}#news">{% firstof texts.NAVBAR_NEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            <a href="{% url 'main_page' %}#contacts">{% firstof texts.NAVBAR_CONTACTS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        </nav>
+        <div class="phone_box">
+            <i class="fas fa-phone-alt"></i>
+            {% with phone_number=texts.CONTACTS_PHONE_NUMBER.get_text_marked_as_safe %}
+                <a href="tel:{{ phone_number|format_phone_number_for_href }}">{% firstof phone_number settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            {% endwith %}
+        </div>
+        <div class="language_box">
+            {% get_current_language as LANGUAGE_CODE %}
+
+            <form action="{% url 'set_language' %}" method="post" id="form_uk" style="display: inline-block !important;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                <input name="language" type="hidden" value="uk"/>
+                <button class="lang_button{% if LANGUAGE_CODE == 'uk' %} selected{% endif %}" type="submit">
+                    {% firstof texts.LANG_SELECTOR_UK_TEXT.get_text_marked_as_safe 'Укр' %}
+                </button>
+            </form>
+            |
+            <form action="{% url 'set_language' %}" method="post" id="form_ru" style="display: inline-block !important;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                <input name="language" type="hidden" value="ru"/>
+                <button class="lang_button{% if LANGUAGE_CODE == 'ru' %} selected{% endif %}" type="submit">
+                    {% firstof texts.LANG_SELECTOR_RU_TEXT.get_text_marked_as_safe 'Рус' %}
+                </button>
+            </form>
+            |
+            <form action="{% url 'set_language' %}" method="post" id="form_en" style="display: inline-block !important;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                <input name="language" type="hidden" value="en"/>
+                <button class="lang_button{% if LANGUAGE_CODE == 'en' %} selected{% endif %}" type="submit">
+                    {% firstof texts.LANG_SELECTOR_EN_TEXT.get_text_marked_as_safe 'Eng' %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <img class="footer-logo"
+         src="{% firstof images.BOTTOM_NAVBAR_BRAND.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+         alt="{% firstof images.BOTTOM_NAVBAR_BRAND.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+         title="{% firstof images.BOTTOM_NAVBAR_BRAND.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+    />
+    <nav>
+        <a href="#about">{% firstof texts.NAVBAR_ABOUT_US.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        <a href="#idea">{% firstof texts.NAVBAR_OUR_IDEA.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        <a href="#feedback">{% firstof texts.NAVBAR_REVIEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        <a href="#news">{% firstof texts.NAVBAR_NEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        <a href="#contacts">{% firstof texts.NAVBAR_CONTACTS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+    </nav>
+    <div class="share">
+        <a href="{% firstof links.FACEBOOK.url settings.DEFAULT_EMPTY_LINK_VALUE %}">
+            <img src="{% firstof images.FACEBOOK_SOCIAL_MEDIA_ICON.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.FACEBOOK_SOCIAL_MEDIA_ICON.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.FACEBOOK_SOCIAL_MEDIA_ICON.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+        <a href="{% firstof links.INSTAGRAM.url settings.DEFAULT_EMPTY_LINK_VALUE %}">
+            <img src="{% firstof images.INSTAGRAM_SOCIAL_MEDIA_ICON.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.INSTAGRAM_SOCIAL_MEDIA_ICON.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.INSTAGRAM_SOCIAL_MEDIA_ICON.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+        <a href="{% firstof links.YOUTUBE.url settings.DEFAULT_EMPTY_LINK_VALUE %}">
+            <img src="{% firstof images.YOUTUBE_SOCIAL_MEDIA_ICON.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.YOUTUBE_SOCIAL_MEDIA_ICON.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.YOUTUBE_SOCIAL_MEDIA_ICON.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+    </div>
+</footer>
+
+{% block scripts_bottom %}
+    <script src="{% static 'js/menu_button.js' %}"></script>
+{% endblock %}
+</body>
+</html>

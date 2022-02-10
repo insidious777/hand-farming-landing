@@ -1,0 +1,273 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #222222;
+}
+
+button{
+    cursor: pointer;
+}
+
+button, input, textarea{
+    outline: none;
+    border: none;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited{
+    color: inherit;
+}
+
+.logo{
+    width: 15%;
+    margin-right: 15px;
+}
+
+nav{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header{
+    font-size: 16px;
+    display: flex;
+    padding: 10px 10%;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.phone_box i{
+    color: #27AE60;
+}
+
+.language_box{
+    display: flex;
+    align-items: center;
+}
+
+.language_box .selected{
+    color:#27AE60;
+    text-decoration: underline;
+}
+
+.language_box p{
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+
+footer{
+    display: flex;
+    padding: 10px 10%;
+    align-items: center;
+    justify-content: space-between;
+    height: 175px;
+    background-color: #27AE60;
+    font-size: 20px;
+    color:white;
+}
+
+.footer-logo{
+    width: 15%;
+    margin-right: 15px;
+}
+
+.share img{
+    margin-left: 16px;
+}
+
+.news-content h1{
+    font-weight: bold;
+    font-size: 52px;
+    color: #222222;
+    text-align: center;
+    margin: 100px 0;
+}
+
+.news-content{
+    padding: 0 10%;
+}
+
+.news-card{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.news-card-text{
+    padding: 32px 60px;
+    border: 1px solid #CBCCCF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+
+.news-arrows{
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 150px;
+    display: flex;
+    width: 180px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.news-arrow{
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.news-arrow-disabled{
+    cursor: initial;
+    color: #222222;
+    opacity: 0.4;
+}
+
+.point{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #27AE60;
+}
+
+.point-selected{
+    width: 10px;
+    height: 10px;
+    background-color: #27AE60;
+}
+
+.news-page{
+    padding: 0 10%;
+    margin-top: 60px;
+}
+
+.news-header{
+    display: flex;
+    margin-bottom: 75px;
+}
+
+.news-header-text{
+    padding-right: 30px;
+}
+
+.news-header-text h2{
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 59px;
+    color: #222222;
+    margin-bottom: 32px;
+}
+
+.news-header-text p{
+    font-size: 20px;
+    margin: 16px 0;
+    color: #979797;
+}
+
+.news-page-text{
+    padding-right: 32%;
+    line-height: 2;
+}
+
+.news-page-text p{
+    margin-bottom: 30px;
+}
+
+.news-page-text li{
+    list-style-type: none;
+    color: #2F3542;
+}
+
+.news-page-text li i{
+    margin-right: 20px;
+}
+
+.news-page-images{
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 0;
+}
+
+.news-page-images img{
+    width: 49%;
+}
+
+.news-page-singe-image img{
+    width: 100%;
+}
+
+.news{
+    padding: 60px 10%;
+}
+
+.news h1{
+    margin-top: 0;
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 46px;
+    text-align: center;
+}
+
+.news-cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.news-card{
+    width: 32%;
+    flex-direction: column;
+}
+
+.news-card img{
+    width: 100%;
+}
+
+.news-card-text{
+    border: 1px solid #CBCCCF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 16px 24px;
+}
+
+.news-card-text p{
+    color: #979797;
+}
+
+.share-news{
+    margin-top: 100px;
+    margin-bottom: 150px;
+    padding-right: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.share-news h3{
+    margin-right: 20px;
+}
+
+.share-news a{
+    flex-grow: 1;
+    margin-left: 30px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #27AE60;
+    border: 1px solid #27AE60;
+    box-shadow: 0px 4px 20px rgba(94, 115, 230, 0.1);
+    border-radius: 2px;
+}

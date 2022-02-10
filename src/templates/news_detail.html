@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Hand Farming - {{ news.title }}
+{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="news-page">
+        <div class="news-header">
+            <div class="news-header-text">
+                <a href="{{ request.META.HTTP_REFERER }}"><i class="fas fa-long-arrow-alt-left"></i></a>
+                <p class="news-header-date">{{ news.display_date|date:"d.m.Y" }}</p>
+                <h2>{{ news.title }}</h2>
+                <p>{{ news.short_description }}</p>
+            </div>
+            <img src="{{ news.image.url }}"/>
+        </div>
+        <div class="news-page-text">
+            {{ news.text|safe }}
+        </div>
+        <div class="share-news">
+            <h3>{% firstof texts.SHARE_NEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                <img src="{% firstof images.SHARE_NEWS_ON_FACEBOOK.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}">
+            </a>
+            <a onclick="copyToClipboard();">{% firstof texts.COPY_NEWS_LINK.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        </div>
+    </div>
+
+    <div id="news" class="news">
+        <h1>{% firstof texts.READ_OTHER_NEWS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="news-cards">
+            {% for post in recommended_news %}
+                <a class="news-card" href="{% url 'news:news_detail' post.id %}">
+                    <img src="{{ post.image.url }}"/>
+                    <div class="news-card-text">
+                        <p class="news-card-text-date">{{ post.display_date }}</p>
+                        <h3>{{ post.title }}</h3>
+                        <p class="news-card-text-desc">{{ post.short_description }}.</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts_bottom %}
+    {{ block.super }}
+
+    <script>
+        function copyToClipboard() {
+            const dummy = document.createElement('input');
+            const text = window.location.href;
+
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+        }
+    </script>
+{% endblock %}

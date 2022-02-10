@@ -1,0 +1,6 @@
+{% extends 'rosetta/edited_origin_base.html' %}
+
+{% block usertools %}
+    {{ block.super }}
+    <a href="{% url 'admin:index' %}">{{ _('Hand Farming') }}</a>
+{% endblock %}

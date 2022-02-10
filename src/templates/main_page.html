@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load common_utils %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/glider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/glider.js' %}"></script>
+    <script src="{% static 'js/questions.js' %}"></script>
+    <script src="{% static 'js/stories.js' %}"></script>
+
+    {% if map %}
+        <script>
+            // Initialize and add the map
+            // Used in google api callback
+            function initMap() {
+                const position = {lat: {{ map.lat|stringformat:'f' }}, lng: {{ map.lng|stringformat:'f' }}};
+
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: position,
+                });
+
+                const marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                });
+            }
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="main_picture">
+        <div class="main-picture-text">
+            <h1>{% firstof texts.PAGE_MAIN_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}<sup>24/7</sup>
+            </h1>
+            <p class="main-picture-text-desc">{% firstof texts.PAGE_MAIN_SUBTITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+            <a class="go-to-store-button"
+               href="{% firstof links.HAND_FARMING_SHOP.url settings.DEFAULT_EMPTY_LINK_VALUE %}"
+               target="_blank">{% firstof texts.GO_TO_STORE_BUTTON_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+            <a href="#">
+                <a href="{% firstof links.YOUTUBE.url settings.DEFAULT_EMPTY_LINK_VALUE %}" target="_blank">
+                    <div class="main-picture-text-youtube">
+                        <img src="{% firstof images.GO_TO_OUR_YOUTUBE_CHANNEL_ICON.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                             alt="{% firstof images.GO_TO_OUR_YOUTUBE_CHANNEL_ICON.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                             title="{% firstof images.GO_TO_OUR_YOUTUBE_CHANNEL_ICON.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                        />
+                        <p>{% firstof texts.YOUTUBE_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                        <p class="main-picture-text-youtube-name">{% firstof texts.YOUTUBE_CHANNEL_NAME.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                    </div>
+                </a>
+            </a>
+            <div class="big-circle circle"></div>
+            <div class="middle-circle circle"></div>
+            <div class="small-circle circle"></div>
+        </div>
+        <img class="main-picture-img"
+             src="{% firstof images.HEADER_BACKGROUND.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+             alt="{% firstof images.HEADER_BACKGROUND.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+             title="{% firstof images.HEADER_BACKGROUND.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+        />
+        <img class="main-picture-img-second" src="{% static 'img/potato.png' %}"/>
+    </div>
+
+    <div class="download">
+        <a class="google-play" href="{% firstof links.HAND_FARMING_APP_ON_GOOGLE_PLAY.url settings.DEFAULT_EMPTY_LINK_VALUE %}" target="_blank">
+            <img src="{% firstof images.GET_IT_ON_GOOGLE_PLAY.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.GET_IT_ON_GOOGLE_PLAY.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.GET_IT_ON_GOOGLE_PLAY.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+        <a class="apple-store" href="{% firstof links.HAND_FARMING_APP_ON_APP_STORE.url settings.DEFAULT_EMPTY_LINK_VALUE %}" target="_blank">
+            <img src="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+    </div>
+
+    <div id="about" class="about">
+        <img src="{% firstof about_us.image.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+             alt="{% firstof about_us.image.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+        />
+        <div class="about-text">
+            <h1>{{ about_us.title }}</h1>
+            <h4>{{ about_us.subtitle }}</h4>
+            {{ about_us.text|safe }}
+        </div>
+    </div>
+
+    <div id="idea" class="idea">
+        <h1>{% firstof texts.QUESTIONS_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="idea-tabs-top">
+
+            {% for question in questions %}
+            <div class="idea-tab-wrapper">
+                <div class="idea-tab">
+                    <p>{{ question.text }}</p>
+                </div>
+                <iframe src="{{ question.youtube_embed_url }}"></iframe>
+            </div>
+            {% endfor %}
+
+        </div>
+        <iframe class="idea-iframe" src="{% firstof links.QUESTIONS_SECTION_DEFAULT_VIDEO_URL.url settings.DEFAULT_EMPTY_LINK_VALUE %}"></iframe>
+    </div>
+
+    <div id="feedback" class="feedback">
+        <h1>{% firstof texts.STORIES_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="feedback-cards">
+            {% for story in stories %}
+                <div class="feedback-card">
+                        <img src="{{ story.image.url }}"
+                             alt="{{ story.title }}"
+                        />
+                    <div class="card-wrapper">
+                        <div class="feedback-card-text">
+                            <h5>{{ story.title }}</h5>
+                            <p>{{ story.subtitle }}</p>
+                        </div>
+                        <div class="feedback-card-opened">
+                            <a href="{{ story.url }}" target="_blank">{% firstof texts.STORY_READ_MORE_BUTTON_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="card-controls">
+            <i class="fas fa-long-arrow-alt-left feedback-arrow feedback-arrow-disabled glider-prev"></i>
+            <div id="dots" class="feedback-arrows">
+
+            </div>
+            <i class="fas fa-long-arrow-alt-right feedback-arrow glider-next"></i>
+        </div>
+
+        <div class="feedback-background">
+            <img src="../static/img/cards-background.png"/>
+        </div>
+    </div>
+
+    <div id="news" class="news">
+        <h1>{% firstof texts.NEWS_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="news-cards">
+            {% for post in news %}
+                <a class="news-card" href="{% url 'news:news_detail' post.id %}">
+                    <img src="{{ post.image.url }}"
+                         alt="{{ post.title }}"
+                    />
+                    <div class="news-card-text">
+                        <p class="news-card-text-date">{{ post.display_date|date:"d.m.Y" }}</p>
+                        <h3>{{ post.title }}</h3>
+                        <p class="news-card-text-desc">{{ post.short_description }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="news-more-wrapper">
+            <a class="news-more"
+               href="{% url 'news:news_list' %}">{% firstof texts.READ_MORE_NEWS_BUTTON_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+        </div>
+    </div>
+
+    <div id="contacts" class="contacts">
+        <h1>{% firstof texts.CONTACTS_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="contacts-content">
+            <div class="contacts-content-left">
+                <div class="contacts-info">
+                    <div class="contacts-info-left-col">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>{% firstof texts.CONTACTS_ADDRESS_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                        <a href="http://maps.google.com/?q=Ternopil">{% firstof texts.CONTACTS_ADDRESS.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+                        <i class="fas fa-envelope"></i>
+                        <p>{% firstof texts.CONTACTS_EMAIL_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                        <a href="mailto:{% firstof texts.CONTACTS_EMAIL_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}">{% firstof texts.CONTACTS_EMAIL.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+                    </div>
+                    <div class="contacts-info-right-col">
+                        <i class="fas fa-phone-alt"></i>
+                        {% with phone_number=texts.CONTACTS_PHONE_NUMBER.get_text_marked_as_safe %}
+                            <p>{% firstof texts.CONTACTS_PHONE_NUMBER_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                            <a href="tel:{{ phone_number|format_phone_number_for_href }}">{% firstof phone_number settings.DEFAULT_EMPTY_TEXT_VALUE %}</a>
+                        {% endwith %}
+                    </div>
+                </div>
+                <div id="map" style="height: 388px; width: 100%;">
+                </div>
+            </div>
+            <form id="feedback_form" class="contacts-form" method="post" novalidate>
+                {% if form_submitted %}
+                    <h3 class='form-sent-text'>{% firstof texts.FEEDBACK_FORM_SUCCESS_MESSAGE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h3>
+                {% else %}
+                {% csrf_token %}
+                <h3>{% firstof texts.FEEDBACK_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h3>
+                <p>{% firstof texts.FEEDBACK_SECTION_SUBTITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</p>
+                <div id="username_errors"></div>
+                <input name="username" class="contacts-input"
+                       placeholder="{% firstof texts.FEEDBACK_FORM_NAME_PLACEHOLDER.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}"/>
+                <div id="phone_number_errors"></div>
+                <input name="phone_number" class="contacts-input"
+                       placeholder="{% firstof texts.FEEDBACK_FORM_PHONE_NUMBER_PLACEHOLDER.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}"/>
+                <div id="email_errors"></div>
+                <input name="email" class="contacts-input" type="email"
+                       placeholder="{% firstof texts.FEEDBACK_FORM_EMAIL_PLACEHOLDER.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}"/>
+                <div id="message_errors"></div>
+                <textarea name="message"
+                          maxlength="255"
+                          placeholder="{% firstof texts.FEEDBACK_FORM_MESSAGE_PLACEHOLDER.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}"></textarea>
+                <div id="terms_accepted_errors"></div>
+                <div class="contacts-checkbox">
+                    <input name="terms_accepted" id="accept" type="checkbox">
+                    <label for="accept">{% firstof texts.FEEDBACK_FORM_TERMS_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</label>
+                </div>
+                <button type="submit">{% firstof texts.FEEDBACK_FORM_SUBMIT_BUTTON_TEXT.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+    <div class="download">
+        <a class="google-play" href="{% firstof links.HAND_FARMING_APP_ON_GOOGLE_PLAY.url settings.DEFAULT_EMPTY_LINK_VALUE %}" target="_blank">
+            <img src="{% firstof images.GET_IT_ON_GOOGLE_PLAY.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.GET_IT_ON_GOOGLE_PLAY.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.GET_IT_ON_GOOGLE_PLAY.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+        <a class="apple-store" href="{% firstof links.HAND_FARMING_APP_ON_APP_STORE.url settings.DEFAULT_EMPTY_LINK_VALUE %}" target="_blank">
+            <img src="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.url settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 alt="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.alt settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+                 title="{% firstof images.DOWNLOAD_ON_THE_APP_STORE.title settings.DEFAULT_EMPTY_IMAGE_VALUE %}"
+            />
+        </a>
+    </div>
+{% endblock %}
+
+{% block scripts_bottom %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/feedback.js' %}"></script>
+
+    {% if map %}
+            <script src="https://maps.googleapis.com/maps/api/js?key={{ map.google_maps_api_key }}&callback=initMap"></script>
+    {% endif %}
+{% endblock %}

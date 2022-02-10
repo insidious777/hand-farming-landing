@@ -1,0 +1,15 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% translate 'Received new message' %}
+    {% translate 'User filled form:' %}
+    {% translate 'Username' %}: {{ username }}
+    {% translate 'Phone number' %}: {{ phone_number }}
+    {% translate 'Email' %}: {{ email }}
+    {% translate 'Message' %}: {{ message }}
+</body>
+</html>

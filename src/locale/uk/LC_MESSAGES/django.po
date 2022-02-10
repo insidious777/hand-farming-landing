@@ -1,0 +1,636 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-20 11:15+0000\n"
+"PO-Revision-Date: 2021-05-14 07:36+0000\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Translated-Using: django-rosetta 0.9.6\n"
+
+#: hand_farming_landing/settings.py:115
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: hand_farming_landing/settings.py:116
+msgid "English"
+msgstr "Англійська"
+
+#: hand_farming_landing/settings.py:117
+msgid "Russian"
+msgstr "Російська"
+
+#: hand_farming_landing/urls.py:43 templates/rosetta/base.html:5
+msgid "Hand Farming"
+msgstr ""
+
+#: main_page/admin.py:25
+msgctxt "Image preview"
+msgid "Preview"
+msgstr ""
+
+#: main_page/admin.py:53 main_page/admin.py:63 main_page/models.py:178
+msgid "Link"
+msgstr "Посилання"
+
+#: main_page/apps.py:8
+msgid "Main Page"
+msgstr "Головна сторінка"
+
+#: main_page/models.py:12 main_page/models.py:66 main_page/models.py:114
+#: main_page/models.py:125 news/models.py:11
+msgid "Text"
+msgstr "Текст"
+
+#: main_page/models.py:15
+msgid "Navbar about us"
+msgstr ""
+
+#: main_page/models.py:16
+msgid "Navbar our idea"
+msgstr ""
+
+#: main_page/models.py:17
+msgid "Navbar reviews"
+msgstr ""
+
+#: main_page/models.py:18
+msgid "Navbar news"
+msgstr ""
+
+#: main_page/models.py:19
+msgid "Navbar contacts"
+msgstr ""
+
+#: main_page/models.py:21
+msgid "Language selector ukrainian text"
+msgstr ""
+
+#: main_page/models.py:22
+msgid "Language selector russian text"
+msgstr ""
+
+#: main_page/models.py:23
+msgid "Language selector english text"
+msgstr ""
+
+#: main_page/models.py:25
+msgid "Page main title"
+msgstr "Головний заголовок сторінки"
+
+#: main_page/models.py:26
+msgid "Page main subtitle"
+msgstr ""
+
+#: main_page/models.py:27
+msgid "Go to store button text"
+msgstr ""
+
+#: main_page/models.py:28
+msgid "Youtube title"
+msgstr ""
+
+#: main_page/models.py:29
+msgid "Youtube channel name"
+msgstr ""
+
+#: main_page/models.py:31
+msgid "Questions section title"
+msgstr ""
+
+#: main_page/models.py:33
+msgid "Stories section title"
+msgstr ""
+
+#: main_page/models.py:34
+msgid "Story read more button text"
+msgstr ""
+
+#: main_page/models.py:36
+msgid "News section title"
+msgstr ""
+
+#: main_page/models.py:37
+msgid "Read more news button text"
+msgstr ""
+
+#: main_page/models.py:39
+msgid "Contacts section title"
+msgstr ""
+
+#: main_page/models.py:40
+msgid "Contacts address text"
+msgstr ""
+
+#: main_page/models.py:41
+msgid "Contacts address"
+msgstr ""
+
+#: main_page/models.py:42
+msgid "Contacts phone number text"
+msgstr ""
+
+#: main_page/models.py:43
+msgid "Contacts phone number"
+msgstr ""
+
+#: main_page/models.py:44
+msgid "Contacts email text"
+msgstr ""
+
+#: main_page/models.py:45
+msgid "Contacts email"
+msgstr ""
+
+#: main_page/models.py:47
+msgid "Feedback section title"
+msgstr ""
+
+#: main_page/models.py:48
+msgid "Feedback section subtitle"
+msgstr ""
+
+#: main_page/models.py:50
+msgid "Feedback form name placeholder"
+msgstr ""
+
+#: main_page/models.py:51
+msgid "Feedback form phone number placeholder"
+msgstr ""
+
+#: main_page/models.py:52
+msgid "Feedback form email placeholder"
+msgstr ""
+
+#: main_page/models.py:53
+msgid "Feedback form message placeholder"
+msgstr ""
+
+#: main_page/models.py:54
+msgid "Feedback form terms text"
+msgstr ""
+
+#: main_page/models.py:55
+msgid "Feedback form submit button text"
+msgstr ""
+
+#: main_page/models.py:56
+msgid "Feedback form success message"
+msgstr ""
+
+#: main_page/models.py:59
+msgid "Share news"
+msgstr ""
+
+#: main_page/models.py:60
+msgid "Read other news"
+msgstr ""
+
+#: main_page/models.py:61
+msgid "Copy news link"
+msgstr ""
+
+#: main_page/models.py:63 main_page/models.py:96 main_page/models.py:175
+msgid "Type"
+msgstr "Тип"
+
+#: main_page/models.py:67
+msgid "Texts"
+msgstr "Тексти"
+
+#: main_page/models.py:70
+#, fuzzy, python-format
+#| msgid "Image: %(type_display)s"
+msgid "Text: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: main_page/models.py:77 main_page/models.py:112 main_page/models.py:150
+#: main_page/models.py:164 news/models.py:9
+msgid "Title"
+msgstr ""
+
+#: main_page/models.py:78
+msgid "Alternative text"
+msgstr ""
+
+#: main_page/models.py:78
+msgid "If image cannot be loaded, then this text will be shown"
+msgstr ""
+
+#: main_page/models.py:79
+msgid "File"
+msgstr ""
+
+#: main_page/models.py:82
+msgid "Navbar brand image"
+msgstr ""
+
+#: main_page/models.py:83
+msgid "Bottom navbar brand image"
+msgstr ""
+
+#: main_page/models.py:84
+msgid "Header background image"
+msgstr ""
+
+#: main_page/models.py:85
+msgid "About hand farming image"
+msgstr ""
+
+#: main_page/models.py:86
+msgid "Go to our youtube channel icon"
+msgstr "Дивіться нас на Youtube іконка"
+
+#: main_page/models.py:87
+msgid "Get it on Google Play image"
+msgstr ""
+
+#: main_page/models.py:88
+msgid "Download on the App Store image"
+msgstr ""
+
+#: main_page/models.py:89
+msgid "Facebook social media icon"
+msgstr ""
+
+#: main_page/models.py:90
+msgid "Instagram social media icon"
+msgstr ""
+
+#: main_page/models.py:91
+msgid "Youtube social media icon"
+msgstr ""
+
+#: main_page/models.py:94
+msgid "Share news on facebook"
+msgstr ""
+
+#: main_page/models.py:99 main_page/models.py:111 main_page/models.py:149
+#: news/models.py:7
+msgid "Image"
+msgstr "Зображення"
+
+#: main_page/models.py:100
+msgid "Images"
+msgstr "Зображення"
+
+#: main_page/models.py:107
+#, python-format
+msgid "Image: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: main_page/models.py:113 main_page/models.py:151
+msgid "Subtitle"
+msgstr ""
+
+#: main_page/models.py:117 main_page/models.py:118
+msgid "About us"
+msgstr "Про нас"
+
+#: main_page/models.py:126
+msgid "Youtube video url"
+msgstr "Посилання Youtube"
+
+#: main_page/models.py:127
+#, fuzzy
+#| msgid "Youtube video url"
+msgid "Youtube video code"
+msgstr "Посилання Youtube"
+
+#: main_page/models.py:127
+msgid ""
+"Example: URL - https://www.youtube.com/watch?v=19bbXiGbfdk then video code "
+"is - 19bbXiGbfdk<br>Leave blank and video code will be detected "
+"automatically<br>If after saving this field still empty - fill it manually"
+msgstr ""
+
+#: main_page/models.py:128 main_page/models.py:153 news/models.py:13
+msgctxt "show something on site or not"
+msgid "Show"
+msgstr "Показувати"
+
+#: main_page/models.py:131
+msgid "Question"
+msgstr "Питання"
+
+#: main_page/models.py:132
+msgid "Questions"
+msgstr "Питання"
+
+#: main_page/models.py:135
+#, fuzzy, python-format
+#| msgid "Image: %(type_display)s"
+msgid "Question: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: main_page/models.py:152 main_page/models.py:165
+msgid "URL"
+msgstr ""
+
+#: main_page/models.py:156
+msgid "Story"
+msgstr "Історія"
+
+#: main_page/models.py:157
+msgid "Stories"
+msgstr "Історії"
+
+#: main_page/models.py:160
+#, fuzzy, python-format
+#| msgid "Image: %(type_display)s"
+msgid "Story: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: main_page/models.py:168
+msgid "Facebook"
+msgstr ""
+
+#: main_page/models.py:169
+msgid "Instagram"
+msgstr ""
+
+#: main_page/models.py:170
+msgid "Youtube"
+msgstr ""
+
+#: main_page/models.py:171
+msgid "Download Hand Farming app on Google Play"
+msgstr ""
+
+#: main_page/models.py:172
+msgid "Download Hand Farming app on App Store"
+msgstr ""
+
+#: main_page/models.py:173
+msgid "Hand Farming shop"
+msgstr ""
+
+#: main_page/models.py:179
+msgid "Links"
+msgstr "Посилання"
+
+#: main_page/models.py:182
+#, fuzzy, python-format
+#| msgid "Image: %(type_display)s"
+msgid "Link: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: main_page/models.py:186
+msgid "Latitude"
+msgstr ""
+
+#: main_page/models.py:187
+msgid "Longitude"
+msgstr ""
+
+#: main_page/models.py:188
+msgid "Google Maps API Key"
+msgstr ""
+
+#: main_page/models.py:191
+msgid "Map"
+msgstr "Карта"
+
+#: main_page/models.py:192
+msgid "Maps"
+msgstr "Карти"
+
+#: main_page/models.py:195
+#, python-format
+msgid "Map: %(coordinates)s"
+msgstr ""
+
+#: main_page/models.py:206
+#: templates/feedback_notification_mail_html_template.html:10
+#: templates/feedback_notification_mail_template.html:4
+msgid "Username"
+msgstr ""
+
+#: main_page/models.py:207
+#: templates/feedback_notification_mail_html_template.html:11
+#: templates/feedback_notification_mail_template.html:5
+msgid "Phone number"
+msgstr ""
+
+#: main_page/models.py:207
+msgid "Format: +380XXXXXXXXX"
+msgstr ""
+
+#: main_page/models.py:208
+#: templates/feedback_notification_mail_html_template.html:12
+#: templates/feedback_notification_mail_template.html:6
+msgid "Email"
+msgstr ""
+
+#: main_page/models.py:209
+#: templates/feedback_notification_mail_html_template.html:13
+#: templates/feedback_notification_mail_template.html:7
+msgid "Message"
+msgstr ""
+
+#: main_page/models.py:210
+msgctxt "whether terms accepted or not"
+msgid "Terms accepted"
+msgstr ""
+
+#: main_page/models.py:211
+msgctxt "time, when something is received"
+msgid "Received at"
+msgstr ""
+
+#: main_page/models.py:214
+msgid "Feedback"
+msgstr ""
+
+#: main_page/models.py:215
+msgid "Feedbacks"
+msgstr ""
+
+#: main_page/models.py:218
+#, python-format
+msgid "Message from %(sender)s"
+msgstr ""
+
+#: main_page/validators.py:9
+msgid "Invalid phone number format"
+msgstr ""
+
+#: main_page/validators.py:14
+msgid "Terms not accepted"
+msgstr ""
+
+#: news/apps.py:8 news/models.py:17 news/models.py:18
+msgid "News"
+msgstr "Новини"
+
+#: news/models.py:8
+msgctxt "which date will be shown"
+msgid "Display date"
+msgstr ""
+
+#: news/models.py:10
+msgid "Short description"
+msgstr ""
+
+#: news/models.py:14
+msgctxt "how many times something is viewed"
+msgid "Views count"
+msgstr ""
+
+#: news/models.py:21
+#, fuzzy, python-format
+#| msgid "Image: %(type_display)s"
+msgid "News: %(type_display)s"
+msgstr "Зображення: %(type_display)s"
+
+#: templates/admin/base.html:12 templates/rosetta/edited_origin_base.html:24
+msgid "Site translations"
+msgstr "Переклад сайту"
+
+#: templates/feedback_notification_mail_html_template.html:8
+#: templates/feedback_notification_mail_template.html:2
+msgid "Received new message"
+msgstr ""
+
+#: templates/feedback_notification_mail_html_template.html:9
+#: templates/feedback_notification_mail_template.html:3
+msgid "User filled form:"
+msgstr ""
+
+#: templates/feedback_notification_mail_subject.txt:2
+#, python-format
+msgid ""
+"\n"
+"[Hand Farming Landing] Received new message from %(username)s\n"
+msgstr ""
+
+#: templates/news_list.html:7
+msgid "Hand Farming - Новини"
+msgstr ""
+
+#: templates/rosetta/form.html:6
+msgid "Pick another file"
+msgstr ""
+
+#: templates/rosetta/form.html:7
+msgid "Download this catalog"
+msgstr ""
+
+#: templates/rosetta/form.html:17
+msgid "Home"
+msgstr ""
+
+#: templates/rosetta/form.html:20
+#, python-format
+msgid "Progress: %(percent_translated)s%%"
+msgstr ""
+
+#: templates/rosetta/form.html:22
+msgid "File is read-only: download the file when done editing!"
+msgstr ""
+
+#: templates/rosetta/form.html:33
+#, python-format
+msgid "Translate into %(rosetta_i18n_lang_name)s"
+msgstr ""
+
+#: templates/rosetta/form.html:36
+msgid "Display:"
+msgstr ""
+
+#: templates/rosetta/form.html:37
+msgid "Untranslated only"
+msgstr ""
+
+#: templates/rosetta/form.html:38
+msgid "Translated only"
+msgstr ""
+
+#: templates/rosetta/form.html:39
+msgid "Fuzzy only"
+msgstr ""
+
+#: templates/rosetta/form.html:40
+msgid "All"
+msgstr ""
+
+#: templates/rosetta/form.html:48
+msgid "Search"
+msgstr ""
+
+#: templates/rosetta/form.html:50
+msgid "Go"
+msgstr ""
+
+#: templates/rosetta/form.html:57
+msgid "Reference language"
+msgstr ""
+
+#: templates/rosetta/form.html:71
+msgid "Original"
+msgstr ""
+
+#: templates/rosetta/form.html:74
+msgid "Fuzzy entries call for revision by the translator."
+msgstr ""
+
+#: templates/rosetta/form.html:74
+msgid "Fuzzy"
+msgstr ""
+
+#: templates/rosetta/form.html:75
+msgid "Occurrences(s)"
+msgstr ""
+
+#: templates/rosetta/form.html:89 templates/rosetta/form.html:92
+#: templates/rosetta/form.html:111 templates/rosetta/form.html:114
+msgid "Context hint"
+msgstr ""
+
+#: templates/rosetta/form.html:121
+msgid "suggest"
+msgstr ""
+
+#: templates/rosetta/form.html:132
+#, python-format
+msgid "%(more_count)s more"
+msgid_plural "%(more_count)s more"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: templates/rosetta/form.html:144
+msgid "Save and translate next block"
+msgstr ""
+
+#: templates/rosetta/form.html:148
+msgid "Skip to page:"
+msgstr ""
+
+#: templates/rosetta/form.html:161
+msgid "Displaying:"
+msgstr ""
+
+#: templates/rosetta/form.html:165
+#, python-format
+msgid "%(hits)s/%(message_number)s message"
+msgid_plural "%(hits)s/%(message_number)s messages"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

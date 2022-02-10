@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% load i18n %}
+{% load rosetta %}
+{% load static %}
+
+{% block extrastyle %}
+<link href="{% static 'css/admin/admin_colors.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block userlinks %}
+    {% if request.user|can_translate  %}
+    <a href="{% url 'rosetta-file-list-redirect' %}">{% translate 'Site translations' %}</a> /
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

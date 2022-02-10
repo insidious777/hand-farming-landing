@@ -1,0 +1,29 @@
+{% load i18n %}
+
+{% if is_paginated %}
+    <nav class="pagination" aria-label="pagination">
+
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-long-arrow-alt-left news-arrow"></i></a>
+        {% else %}
+            <i class="fas fa-long-arrow-alt-left news-arrow news-arrow-disabled"></i>
+        {% endif %}
+
+        {% for page_number in paginator.page_range %}
+
+            {% if page_obj.number == page_number %}
+                <a href="#"><div class="point point-selected"></div></a>
+            {% elif page_number > page_obj.number|add:'-3' and page_number < page_obj.number|add:'3' %}
+                <a href="?page={{ page_number }}"><div class="point"></div></a>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-long-arrow-alt-right news-arrow"></i></a>
+        {% else %}
+            <i class="fas fa-long-arrow-alt-right news-arrow news-arrow-disabled"></i>
+        {% endif %}
+
+    </nav>
+{% endif %}

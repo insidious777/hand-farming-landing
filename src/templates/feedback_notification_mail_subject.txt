@@ -1,0 +1,4 @@
+{% load i18n %}
+{% blocktranslate with username=username %}
+[Hand Farming Landing] Received new message from {{ username }}
+{% endblocktranslate %}

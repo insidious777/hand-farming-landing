@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% translate 'Hand Farming - Новини' %}
+{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="news-list-content">
+        <h1>{% firstof texts.NEWS_SECTION_TITLE.get_text_marked_as_safe settings.DEFAULT_EMPTY_TEXT_VALUE %}</h1>
+        <div class="news-list-cards">
+            {% for news in news_list %}
+                <a class="news-list-card" href="{% url 'news:news_detail' news.id %}">
+                    <div class="news-list-card-img">
+                        <img src="{{ news.image.url }}" alt="{{ news.title }}">
+                    </div>
+
+                    <div class="news-list-card-text">
+                        <h3>{{ news.title }}</h3>
+                        <p>{{ news.short_description }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+        {% include 'pagination.html' %}
+
+    </div>
+{% endblock %}

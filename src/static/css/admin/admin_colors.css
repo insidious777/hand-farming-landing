@@ -1,0 +1,33 @@
+:root {
+    --primary: #27AE60;
+    --secondary: #008c41;
+    --accent: #fff;
+    --header-color: #fff;
+    --header-link-color: #fff;
+    --breadcrumbs-fg: #C9FFBF;
+    --link-fg: #1c502f;
+    --link-hover-color: var(--primary);
+    --selected-row: #d5fadd;
+    --default-button-hover-bg: var(--link-fg);
+    --button-hover-bg: var(--secondary);
+}
+
+#user-tools a:focus, #user-tools a:hover {
+    text-decoration: none;
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+#site-name a {
+    font-weight: bold;
+}
+
+
+/* django-translation */
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
+    background: var(--primary) repeat-x !important;
+}
+
+.object-tools li.active, .object-tools li.active a {
+    color: var(--breadcrumbs-fg) !important;
+}
